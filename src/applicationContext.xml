@@ -61,8 +61,9 @@
 	</aop:config>
 	
 	<!-- 往spring容器中装配service的bean -->
+	<!-- 
 	<bean id="demoService" class="com.neuedu.model.service.DemoServiceImpl"></bean>
 	
 	<bean id="voteService" class="com.neuedu.model.service.VoteServiceImpl"></bean>
-	
+	 -->
 </beans>
