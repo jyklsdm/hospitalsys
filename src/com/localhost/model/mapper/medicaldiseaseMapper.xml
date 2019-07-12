@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.localhost.model.mapper.medicaldiseaseMapper">
+  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.medicaldisease">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="MedicalID" jdbcType="INTEGER" property="medicalid" />
+    <result column="RegistID" jdbcType="INTEGER" property="registid" />
+    <result column="DiseaseID" jdbcType="INTEGER" property="diseaseid" />
+    <result column="DiagnoseType" jdbcType="INTEGER" property="diagnosetype" />
+    <result column="GetSiskDate" jdbcType="TIMESTAMP" property="getsiskdate" />
+    <result column="DiagnoseCate" jdbcType="INTEGER" property="diagnosecate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.localhost.model.pojo.medicaldisease">
+    insert into medicaldisease (ID, MedicalID, RegistID, 
+      DiseaseID, DiagnoseType, GetSiskDate, 
+      DiagnoseCate)
+    values (#{id,jdbcType=INTEGER}, #{medicalid,jdbcType=INTEGER}, #{registid,jdbcType=INTEGER}, 
+      #{diseaseid,jdbcType=INTEGER}, #{diagnosetype,jdbcType=INTEGER}, #{getsiskdate,jdbcType=TIMESTAMP}, 
+      #{diagnosecate,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.localhost.model.pojo.medicaldisease">
+    insert into medicaldisease
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="medicalid != null">
+        MedicalID,
+      </if>
+      <if test="registid != null">
+        RegistID,
+      </if>
+      <if test="diseaseid != null">
+        DiseaseID,
+      </if>
+      <if test="diagnosetype != null">
+        DiagnoseType,
+      </if>
+      <if test="getsiskdate != null">
+        GetSiskDate,
+      </if>
+      <if test="diagnosecate != null">
+        DiagnoseCate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="medicalid != null">
+        #{medicalid,jdbcType=INTEGER},
+      </if>
+      <if test="registid != null">
+        #{registid,jdbcType=INTEGER},
+      </if>
+      <if test="diseaseid != null">
+        #{diseaseid,jdbcType=INTEGER},
+      </if>
+      <if test="diagnosetype != null">
+        #{diagnosetype,jdbcType=INTEGER},
+      </if>
+      <if test="getsiskdate != null">
+        #{getsiskdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="diagnosecate != null">
+        #{diagnosecate,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

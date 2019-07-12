@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.localhost.model.mapper.diseaseMapper">
+  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.disease">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="DiseaseCode" jdbcType="VARCHAR" property="diseasecode" />
+    <result column="DiseaseName" jdbcType="VARCHAR" property="diseasename" />
+    <result column="DiseaseICD" jdbcType="VARCHAR" property="diseaseicd" />
+    <result column="DiseCategoryID" jdbcType="INTEGER" property="disecategoryid" />
+    <result column="DelMark" jdbcType="INTEGER" property="delmark" />
+  </resultMap>
+  <insert id="insert" parameterType="com.localhost.model.pojo.disease">
+    insert into disease (ID, DiseaseCode, DiseaseName, 
+      DiseaseICD, DiseCategoryID, DelMark
+      )
+    values (#{id,jdbcType=INTEGER}, #{diseasecode,jdbcType=VARCHAR}, #{diseasename,jdbcType=VARCHAR}, 
+      #{diseaseicd,jdbcType=VARCHAR}, #{disecategoryid,jdbcType=INTEGER}, #{delmark,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.localhost.model.pojo.disease">
+    insert into disease
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="diseasecode != null">
+        DiseaseCode,
+      </if>
+      <if test="diseasename != null">
+        DiseaseName,
+      </if>
+      <if test="diseaseicd != null">
+        DiseaseICD,
+      </if>
+      <if test="disecategoryid != null">
+        DiseCategoryID,
+      </if>
+      <if test="delmark != null">
+        DelMark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="diseasecode != null">
+        #{diseasecode,jdbcType=VARCHAR},
+      </if>
+      <if test="diseasename != null">
+        #{diseasename,jdbcType=VARCHAR},
+      </if>
+      <if test="diseaseicd != null">
+        #{diseaseicd,jdbcType=VARCHAR},
+      </if>
+      <if test="disecategoryid != null">
+        #{disecategoryid,jdbcType=INTEGER},
+      </if>
+      <if test="delmark != null">
+        #{delmark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

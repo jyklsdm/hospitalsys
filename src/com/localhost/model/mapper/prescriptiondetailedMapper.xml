@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.localhost.model.mapper.prescriptiondetailedMapper">
+  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.prescriptiondetailed">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="PrescriptionID" jdbcType="INTEGER" property="prescriptionid" />
+    <result column="DrugsID" jdbcType="INTEGER" property="drugsid" />
+    <result column="DrugsUsage" jdbcType="VARCHAR" property="drugsusage" />
+    <result column="Dosage" jdbcType="VARCHAR" property="dosage" />
+    <result column="Frequency" jdbcType="VARCHAR" property="frequency" />
+    <result column="Amount" jdbcType="DECIMAL" property="amount" />
+    <result column="State" jdbcType="INTEGER" property="state" />
+  </resultMap>
+  <insert id="insert" parameterType="com.localhost.model.pojo.prescriptiondetailed">
+    insert into prescriptiondetailed (ID, PrescriptionID, DrugsID, 
+      DrugsUsage, Dosage, Frequency, 
+      Amount, State)
+    values (#{id,jdbcType=INTEGER}, #{prescriptionid,jdbcType=INTEGER}, #{drugsid,jdbcType=INTEGER}, 
+      #{drugsusage,jdbcType=VARCHAR}, #{dosage,jdbcType=VARCHAR}, #{frequency,jdbcType=VARCHAR}, 
+      #{amount,jdbcType=DECIMAL}, #{state,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.localhost.model.pojo.prescriptiondetailed">
+    insert into prescriptiondetailed
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="prescriptionid != null">
+        PrescriptionID,
+      </if>
+      <if test="drugsid != null">
+        DrugsID,
+      </if>
+      <if test="drugsusage != null">
+        DrugsUsage,
+      </if>
+      <if test="dosage != null">
+        Dosage,
+      </if>
+      <if test="frequency != null">
+        Frequency,
+      </if>
+      <if test="amount != null">
+        Amount,
+      </if>
+      <if test="state != null">
+        State,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="prescriptionid != null">
+        #{prescriptionid,jdbcType=INTEGER},
+      </if>
+      <if test="drugsid != null">
+        #{drugsid,jdbcType=INTEGER},
+      </if>
+      <if test="drugsusage != null">
+        #{drugsusage,jdbcType=VARCHAR},
+      </if>
+      <if test="dosage != null">
+        #{dosage,jdbcType=VARCHAR},
+      </if>
+      <if test="frequency != null">
+        #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

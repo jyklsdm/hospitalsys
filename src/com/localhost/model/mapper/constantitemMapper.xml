@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.localhost.model.mapper.constantitemMapper">
+  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.constantitem">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ConstantTypeID" jdbcType="INTEGER" property="constanttypeid" />
+    <result column="ConstantCode" jdbcType="VARCHAR" property="constantcode" />
+    <result column="ConstantName" jdbcType="VARCHAR" property="constantname" />
+    <result column="DelMark" jdbcType="INTEGER" property="delmark" />
+  </resultMap>
+  <insert id="insert" parameterType="com.localhost.model.pojo.constantitem">
+    insert into constantitem (ID, ConstantTypeID, ConstantCode, 
+      ConstantName, DelMark)
+    values (#{id,jdbcType=INTEGER}, #{constanttypeid,jdbcType=INTEGER}, #{constantcode,jdbcType=VARCHAR}, 
+      #{constantname,jdbcType=VARCHAR}, #{delmark,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.localhost.model.pojo.constantitem">
+    insert into constantitem
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="constanttypeid != null">
+        ConstantTypeID,
+      </if>
+      <if test="constantcode != null">
+        ConstantCode,
+      </if>
+      <if test="constantname != null">
+        ConstantName,
+      </if>
+      <if test="delmark != null">
+        DelMark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="constanttypeid != null">
+        #{constanttypeid,jdbcType=INTEGER},
+      </if>
+      <if test="constantcode != null">
+        #{constantcode,jdbcType=VARCHAR},
+      </if>
+      <if test="constantname != null">
+        #{constantname,jdbcType=VARCHAR},
+      </if>
+      <if test="delmark != null">
+        #{delmark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
