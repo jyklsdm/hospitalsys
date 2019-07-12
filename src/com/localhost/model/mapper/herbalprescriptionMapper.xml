@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.localhost.model.mapper.herbalprescriptionMapper">
+  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.herbalprescription">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="MedicalID" jdbcType="INTEGER" property="medicalid" />
+    <result column="RegistID" jdbcType="INTEGER" property="registid" />
+    <result column="UserID" jdbcType="INTEGER" property="userid" />
+    <result column="PrescriptionName" jdbcType="VARCHAR" property="prescriptionname" />
+    <result column="CreationTime" jdbcType="TIMESTAMP" property="creationtime" />
+    <result column="PrescriptioType" jdbcType="VARCHAR" property="prescriptiotype" />
+    <result column="PayNumber" jdbcType="INTEGER" property="paynumber" />
+    <result column="Frequency" jdbcType="VARCHAR" property="frequency" />
+    <result column="DrugsUsage" jdbcType="VARCHAR" property="drugsusage" />
+    <result column="Therapy" jdbcType="VARCHAR" property="therapy" />
+    <result column="Detailed" jdbcType="VARCHAR" property="detailed" />
+    <result column="Advice" jdbcType="VARCHAR" property="advice" />
+    <result column="State" jdbcType="INTEGER" property="state" />
+  </resultMap>
+  <insert id="insert" parameterType="com.localhost.model.pojo.herbalprescription">
+    insert into herbalprescription (ID, MedicalID, RegistID, 
+      UserID, PrescriptionName, CreationTime, 
+      PrescriptioType, PayNumber, Frequency, 
+      DrugsUsage, Therapy, Detailed, 
+      Advice, State)
+    values (#{id,jdbcType=INTEGER}, #{medicalid,jdbcType=INTEGER}, #{registid,jdbcType=INTEGER}, 
+      #{userid,jdbcType=INTEGER}, #{prescriptionname,jdbcType=VARCHAR}, #{creationtime,jdbcType=TIMESTAMP}, 
+      #{prescriptiotype,jdbcType=VARCHAR}, #{paynumber,jdbcType=INTEGER}, #{frequency,jdbcType=VARCHAR}, 
+      #{drugsusage,jdbcType=VARCHAR}, #{therapy,jdbcType=VARCHAR}, #{detailed,jdbcType=VARCHAR}, 
+      #{advice,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.localhost.model.pojo.herbalprescription">
+    insert into herbalprescription
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="medicalid != null">
+        MedicalID,
+      </if>
+      <if test="registid != null">
+        RegistID,
+      </if>
+      <if test="userid != null">
+        UserID,
+      </if>
+      <if test="prescriptionname != null">
+        PrescriptionName,
+      </if>
+      <if test="creationtime != null">
+        CreationTime,
+      </if>
+      <if test="prescriptiotype != null">
+        PrescriptioType,
+      </if>
+      <if test="paynumber != null">
+        PayNumber,
+      </if>
+      <if test="frequency != null">
+        Frequency,
+      </if>
+      <if test="drugsusage != null">
+        DrugsUsage,
+      </if>
+      <if test="therapy != null">
+        Therapy,
+      </if>
+      <if test="detailed != null">
+        Detailed,
+      </if>
+      <if test="advice != null">
+        Advice,
+      </if>
+      <if test="state != null">
+        State,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="medicalid != null">
+        #{medicalid,jdbcType=INTEGER},
+      </if>
+      <if test="registid != null">
+        #{registid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="prescriptionname != null">
+        #{prescriptionname,jdbcType=VARCHAR},
+      </if>
+      <if test="creationtime != null">
+        #{creationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="prescriptiotype != null">
+        #{prescriptiotype,jdbcType=VARCHAR},
+      </if>
+      <if test="paynumber != null">
+        #{paynumber,jdbcType=INTEGER},
+      </if>
+      <if test="frequency != null">
+        #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="drugsusage != null">
+        #{drugsusage,jdbcType=VARCHAR},
+      </if>
+      <if test="therapy != null">
+        #{therapy,jdbcType=VARCHAR},
+      </if>
+      <if test="detailed != null">
+        #{detailed,jdbcType=VARCHAR},
+      </if>
+      <if test="advice != null">
+        #{advice,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

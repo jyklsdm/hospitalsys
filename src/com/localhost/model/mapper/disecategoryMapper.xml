@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.localhost.model.mapper.disecategoryMapper">
+  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.disecategory">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="DicaCode" jdbcType="VARCHAR" property="dicacode" />
+    <result column="DicaName" jdbcType="VARCHAR" property="dicaname" />
+    <result column="SequenceNo" jdbcType="INTEGER" property="sequenceno" />
+    <result column="DicaType" jdbcType="INTEGER" property="dicatype" />
+    <result column="DelMark" jdbcType="INTEGER" property="delmark" />
+  </resultMap>
+  <insert id="insert" parameterType="com.localhost.model.pojo.disecategory">
+    insert into disecategory (ID, DicaCode, DicaName, 
+      SequenceNo, DicaType, DelMark
+      )
+    values (#{id,jdbcType=INTEGER}, #{dicacode,jdbcType=VARCHAR}, #{dicaname,jdbcType=VARCHAR}, 
+      #{sequenceno,jdbcType=INTEGER}, #{dicatype,jdbcType=INTEGER}, #{delmark,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.localhost.model.pojo.disecategory">
+    insert into disecategory
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="dicacode != null">
+        DicaCode,
+      </if>
+      <if test="dicaname != null">
+        DicaName,
+      </if>
+      <if test="sequenceno != null">
+        SequenceNo,
+      </if>
+      <if test="dicatype != null">
+        DicaType,
+      </if>
+      <if test="delmark != null">
+        DelMark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="dicacode != null">
+        #{dicacode,jdbcType=VARCHAR},
+      </if>
+      <if test="dicaname != null">
+        #{dicaname,jdbcType=VARCHAR},
+      </if>
+      <if test="sequenceno != null">
+        #{sequenceno,jdbcType=INTEGER},
+      </if>
+      <if test="dicatype != null">
+        #{dicatype,jdbcType=INTEGER},
+      </if>
+      <if test="delmark != null">
+        #{delmark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

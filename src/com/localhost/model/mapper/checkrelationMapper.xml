@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.localhost.model.mapper.checkrelationMapper">
+  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.checkrelation">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CheckProjID" jdbcType="INTEGER" property="checkprojid" />
+    <result column="CheckTempID" jdbcType="INTEGER" property="checktempid" />
+    <result column="Position" jdbcType="VARCHAR" property="position" />
+  </resultMap>
+  <insert id="insert" parameterType="com.localhost.model.pojo.checkrelation">
+    insert into checkrelation (ID, CheckProjID, CheckTempID, 
+      Position)
+    values (#{id,jdbcType=INTEGER}, #{checkprojid,jdbcType=INTEGER}, #{checktempid,jdbcType=INTEGER}, 
+      #{position,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.localhost.model.pojo.checkrelation">
+    insert into checkrelation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="checkprojid != null">
+        CheckProjID,
+      </if>
+      <if test="checktempid != null">
+        CheckTempID,
+      </if>
+      <if test="position != null">
+        Position,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="checkprojid != null">
+        #{checkprojid,jdbcType=INTEGER},
+      </if>
+      <if test="checktempid != null">
+        #{checktempid,jdbcType=INTEGER},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

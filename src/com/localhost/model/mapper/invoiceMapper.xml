@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.localhost.model.mapper.invoiceMapper">
+  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.invoice">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="InvoiceNum" jdbcType="VARCHAR" property="invoicenum" />
+    <result column="Money" jdbcType="DECIMAL" property="money" />
+    <result column="State" jdbcType="INTEGER" property="state" />
+    <result column="CreationTime" jdbcType="TIMESTAMP" property="creationtime" />
+    <result column="UserID" jdbcType="INTEGER" property="userid" />
+    <result column="RegistID" jdbcType="INTEGER" property="registid" />
+    <result column="FeeType" jdbcType="INTEGER" property="feetype" />
+    <result column="Back" jdbcType="VARCHAR" property="back" />
+    <result column="DailyState" jdbcType="INTEGER" property="dailystate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.localhost.model.pojo.invoice">
+    insert into invoice (ID, InvoiceNum, Money, 
+      State, CreationTime, UserID, 
+      RegistID, FeeType, Back, 
+      DailyState)
+    values (#{id,jdbcType=INTEGER}, #{invoicenum,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, 
+      #{state,jdbcType=INTEGER}, #{creationtime,jdbcType=TIMESTAMP}, #{userid,jdbcType=INTEGER}, 
+      #{registid,jdbcType=INTEGER}, #{feetype,jdbcType=INTEGER}, #{back,jdbcType=VARCHAR}, 
+      #{dailystate,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.localhost.model.pojo.invoice">
+    insert into invoice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="invoicenum != null">
+        InvoiceNum,
+      </if>
+      <if test="money != null">
+        Money,
+      </if>
+      <if test="state != null">
+        State,
+      </if>
+      <if test="creationtime != null">
+        CreationTime,
+      </if>
+      <if test="userid != null">
+        UserID,
+      </if>
+      <if test="registid != null">
+        RegistID,
+      </if>
+      <if test="feetype != null">
+        FeeType,
+      </if>
+      <if test="back != null">
+        Back,
+      </if>
+      <if test="dailystate != null">
+        DailyState,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="invoicenum != null">
+        #{invoicenum,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="creationtime != null">
+        #{creationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="registid != null">
+        #{registid,jdbcType=INTEGER},
+      </if>
+      <if test="feetype != null">
+        #{feetype,jdbcType=INTEGER},
+      </if>
+      <if test="back != null">
+        #{back,jdbcType=VARCHAR},
+      </if>
+      <if test="dailystate != null">
+        #{dailystate,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
