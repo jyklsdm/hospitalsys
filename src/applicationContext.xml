@@ -57,13 +57,8 @@
 	</tx:advice>
 	<!-- 设置切面 -->
 	<aop:config>
-		<aop:advisor advice-ref="txAdvice" pointcut="execution(* com.neuedu.model.service.*.*(..))"/>
+		<aop:advisor advice-ref="txAdvice" pointcut="execution(* com.localhost.model.service.*.*(..))"/>
 	</aop:config>
 	
 	<!-- 往spring容器中装配service的bean -->
-	<!-- 
-	<bean id="demoService" class="com.neuedu.model.service.DemoServiceImpl"></bean>
-	
-	<bean id="voteService" class="com.neuedu.model.service.VoteServiceImpl"></bean>
-	 -->
 </beans>
