@@ -1,6 +1,6 @@
 package com.localhost.model.mapper;
 
-import com.localhost.model.pojo.scheduling;
+import com.localhost.model.po.scheduling;
 
 public interface schedulingMapper {
     int insert(scheduling record);

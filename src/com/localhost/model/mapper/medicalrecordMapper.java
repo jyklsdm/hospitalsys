@@ -1,6 +1,6 @@
 package com.localhost.model.mapper;
 
-import com.localhost.model.pojo.medicalrecord;
+import com.localhost.model.po.medicalrecord;
 
 public interface medicalrecordMapper {
     int insert(medicalrecord record);

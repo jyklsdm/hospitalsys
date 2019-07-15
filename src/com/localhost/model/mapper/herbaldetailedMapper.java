@@ -1,6 +1,6 @@
 package com.localhost.model.mapper;
 
-import com.localhost.model.pojo.herbaldetailed;
+import com.localhost.model.po.herbaldetailed;
 
 public interface herbaldetailedMapper {
     int insert(herbaldetailed record);

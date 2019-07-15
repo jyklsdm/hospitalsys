@@ -1,6 +1,6 @@
 package com.localhost.model.mapper;
 
-import com.localhost.model.pojo.constantitem;
+import com.localhost.model.po.constantitem;
 
 public interface constantitemMapper {
     int insert(constantitem record);

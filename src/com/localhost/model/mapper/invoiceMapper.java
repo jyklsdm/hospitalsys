@@ -1,6 +1,6 @@
 package com.localhost.model.mapper;
 
-import com.localhost.model.pojo.invoice;
+import com.localhost.model.po.invoice;
 
 public interface invoiceMapper {
     int insert(invoice record);

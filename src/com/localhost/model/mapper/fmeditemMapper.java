@@ -1,6 +1,6 @@
 package com.localhost.model.mapper;
 
-import com.localhost.model.pojo.fmeditem;
+import com.localhost.model.po.fmeditem;
 
 public interface fmeditemMapper {
     int insert(fmeditem record);

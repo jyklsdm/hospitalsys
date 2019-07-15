@@ -1,6 +1,6 @@
 package com.localhost.model.mapper;
 
-import com.localhost.model.pojo.rule;
+import com.localhost.model.po.rule;
 
 public interface ruleMapper {
     int insert(rule record);

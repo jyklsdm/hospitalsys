@@ -1,6 +1,6 @@
 package com.localhost.model.mapper;
 
-import com.localhost.model.pojo.checkrelation;
+import com.localhost.model.po.checkrelation;
 
 public interface checkrelationMapper {
     int insert(checkrelation record);

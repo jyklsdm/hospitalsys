@@ -1,6 +1,6 @@
 package com.localhost.model.mapper;
 
-import com.localhost.model.pojo.registlevel;
+import com.localhost.model.po.registlevel;
 
 public interface registlevelMapper {
     int insert(registlevel record);
