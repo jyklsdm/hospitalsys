@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.localhost.model.mapper.fmeditemMapper">
+  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.fmeditem">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ItemCode" jdbcType="VARCHAR" property="itemcode" />
+    <result column="ItemName" jdbcType="VARCHAR" property="itemname" />
+    <result column="Format" jdbcType="VARCHAR" property="format" />
+    <result column="Price" jdbcType="DECIMAL" property="price" />
+    <result column="ExpClassID" jdbcType="INTEGER" property="expclassid" />
+    <result column="DeptID" jdbcType="INTEGER" property="deptid" />
+    <result column="MnemonicCode" jdbcType="VARCHAR" property="mnemoniccode" />
+    <result column="CreationDate" jdbcType="TIMESTAMP" property="creationdate" />
+    <result column="LastUpdateDate" jdbcType="TIMESTAMP" property="lastupdatedate" />
+    <result column="RecordType" jdbcType="INTEGER" property="recordtype" />
+    <result column="DelMark" jdbcType="INTEGER" property="delmark" />
+  </resultMap>
+  <insert id="insert" parameterType="com.localhost.model.pojo.fmeditem">
+    insert into fmeditem (ID, ItemCode, ItemName, 
+      Format, Price, ExpClassID, 
+      DeptID, MnemonicCode, CreationDate, 
+      LastUpdateDate, RecordType, DelMark
+      )
+    values (#{id,jdbcType=INTEGER}, #{itemcode,jdbcType=VARCHAR}, #{itemname,jdbcType=VARCHAR}, 
+      #{format,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{expclassid,jdbcType=INTEGER}, 
+      #{deptid,jdbcType=INTEGER}, #{mnemoniccode,jdbcType=VARCHAR}, #{creationdate,jdbcType=TIMESTAMP}, 
+      #{lastupdatedate,jdbcType=TIMESTAMP}, #{recordtype,jdbcType=INTEGER}, #{delmark,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.localhost.model.pojo.fmeditem">
+    insert into fmeditem
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="itemcode != null">
+        ItemCode,
+      </if>
+      <if test="itemname != null">
+        ItemName,
+      </if>
+      <if test="format != null">
+        Format,
+      </if>
+      <if test="price != null">
+        Price,
+      </if>
+      <if test="expclassid != null">
+        ExpClassID,
+      </if>
+      <if test="deptid != null">
+        DeptID,
+      </if>
+      <if test="mnemoniccode != null">
+        MnemonicCode,
+      </if>
+      <if test="creationdate != null">
+        CreationDate,
+      </if>
+      <if test="lastupdatedate != null">
+        LastUpdateDate,
+      </if>
+      <if test="recordtype != null">
+        RecordType,
+      </if>
+      <if test="delmark != null">
+        DelMark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="itemcode != null">
+        #{itemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="itemname != null">
+        #{itemname,jdbcType=VARCHAR},
+      </if>
+      <if test="format != null">
+        #{format,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="expclassid != null">
+        #{expclassid,jdbcType=INTEGER},
+      </if>
+      <if test="deptid != null">
+        #{deptid,jdbcType=INTEGER},
+      </if>
+      <if test="mnemoniccode != null">
+        #{mnemoniccode,jdbcType=VARCHAR},
+      </if>
+      <if test="creationdate != null">
+        #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdatedate != null">
+        #{lastupdatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordtype != null">
+        #{recordtype,jdbcType=INTEGER},
+      </if>
+      <if test="delmark != null">
+        #{delmark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

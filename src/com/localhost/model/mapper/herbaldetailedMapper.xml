@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.localhost.model.mapper.herbaldetailedMapper">
+  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.herbaldetailed">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="HerbalPresID" jdbcType="INTEGER" property="herbalpresid" />
+    <result column="HerbalID" jdbcType="INTEGER" property="herbalid" />
+    <result column="Dosage" jdbcType="VARCHAR" property="dosage" />
+    <result column="Price" jdbcType="DECIMAL" property="price" />
+    <result column="Footnote" jdbcType="VARCHAR" property="footnote" />
+  </resultMap>
+  <insert id="insert" parameterType="com.localhost.model.pojo.herbaldetailed">
+    insert into herbaldetailed (ID, HerbalPresID, HerbalID, 
+      Dosage, Price, Footnote
+      )
+    values (#{id,jdbcType=INTEGER}, #{herbalpresid,jdbcType=INTEGER}, #{herbalid,jdbcType=INTEGER}, 
+      #{dosage,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{footnote,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.localhost.model.pojo.herbaldetailed">
+    insert into herbaldetailed
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="herbalpresid != null">
+        HerbalPresID,
+      </if>
+      <if test="herbalid != null">
+        HerbalID,
+      </if>
+      <if test="dosage != null">
+        Dosage,
+      </if>
+      <if test="price != null">
+        Price,
+      </if>
+      <if test="footnote != null">
+        Footnote,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="herbalpresid != null">
+        #{herbalpresid,jdbcType=INTEGER},
+      </if>
+      <if test="herbalid != null">
+        #{herbalid,jdbcType=INTEGER},
+      </if>
+      <if test="dosage != null">
+        #{dosage,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="footnote != null">
+        #{footnote,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

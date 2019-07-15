@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.localhost.model.mapper.drugsMapper">
+  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.drugs">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="DrugsCode" jdbcType="CHAR" property="drugscode" />
+    <result column="DrugsName" jdbcType="VARCHAR" property="drugsname" />
+    <result column="DrugsFormat" jdbcType="VARCHAR" property="drugsformat" />
+    <result column="DrugsUnit" jdbcType="VARCHAR" property="drugsunit" />
+    <result column="Manufacturer" jdbcType="VARCHAR" property="manufacturer" />
+    <result column="DrugsDosageID" jdbcType="INTEGER" property="drugsdosageid" />
+    <result column="DrugsTypeID" jdbcType="INTEGER" property="drugstypeid" />
+    <result column="DrugsPrice" jdbcType="DECIMAL" property="drugsprice" />
+    <result column="MnemonicCode" jdbcType="VARCHAR" property="mnemoniccode" />
+    <result column="CreationDate" jdbcType="TIMESTAMP" property="creationdate" />
+    <result column="LastUpdateDate" jdbcType="TIMESTAMP" property="lastupdatedate" />
+    <result column="DelMark" jdbcType="INTEGER" property="delmark" />
+  </resultMap>
+  <insert id="insert" parameterType="com.localhost.model.pojo.drugs">
+    insert into drugs (ID, DrugsCode, DrugsName, 
+      DrugsFormat, DrugsUnit, Manufacturer, 
+      DrugsDosageID, DrugsTypeID, DrugsPrice, 
+      MnemonicCode, CreationDate, LastUpdateDate, 
+      DelMark)
+    values (#{id,jdbcType=INTEGER}, #{drugscode,jdbcType=CHAR}, #{drugsname,jdbcType=VARCHAR}, 
+      #{drugsformat,jdbcType=VARCHAR}, #{drugsunit,jdbcType=VARCHAR}, #{manufacturer,jdbcType=VARCHAR}, 
+      #{drugsdosageid,jdbcType=INTEGER}, #{drugstypeid,jdbcType=INTEGER}, #{drugsprice,jdbcType=DECIMAL}, 
+      #{mnemoniccode,jdbcType=VARCHAR}, #{creationdate,jdbcType=TIMESTAMP}, #{lastupdatedate,jdbcType=TIMESTAMP}, 
+      #{delmark,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.localhost.model.pojo.drugs">
+    insert into drugs
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="drugscode != null">
+        DrugsCode,
+      </if>
+      <if test="drugsname != null">
+        DrugsName,
+      </if>
+      <if test="drugsformat != null">
+        DrugsFormat,
+      </if>
+      <if test="drugsunit != null">
+        DrugsUnit,
+      </if>
+      <if test="manufacturer != null">
+        Manufacturer,
+      </if>
+      <if test="drugsdosageid != null">
+        DrugsDosageID,
+      </if>
+      <if test="drugstypeid != null">
+        DrugsTypeID,
+      </if>
+      <if test="drugsprice != null">
+        DrugsPrice,
+      </if>
+      <if test="mnemoniccode != null">
+        MnemonicCode,
+      </if>
+      <if test="creationdate != null">
+        CreationDate,
+      </if>
+      <if test="lastupdatedate != null">
+        LastUpdateDate,
+      </if>
+      <if test="delmark != null">
+        DelMark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="drugscode != null">
+        #{drugscode,jdbcType=CHAR},
+      </if>
+      <if test="drugsname != null">
+        #{drugsname,jdbcType=VARCHAR},
+      </if>
+      <if test="drugsformat != null">
+        #{drugsformat,jdbcType=VARCHAR},
+      </if>
+      <if test="drugsunit != null">
+        #{drugsunit,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturer != null">
+        #{manufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="drugsdosageid != null">
+        #{drugsdosageid,jdbcType=INTEGER},
+      </if>
+      <if test="drugstypeid != null">
+        #{drugstypeid,jdbcType=INTEGER},
+      </if>
+      <if test="drugsprice != null">
+        #{drugsprice,jdbcType=DECIMAL},
+      </if>
+      <if test="mnemoniccode != null">
+        #{mnemoniccode,jdbcType=VARCHAR},
+      </if>
+      <if test="creationdate != null">
+        #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdatedate != null">
+        #{lastupdatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delmark != null">
+        #{delmark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.localhost.model.mapper.herbaltemplateMapper">
+  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.herbaltemplate">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="DoctorID" jdbcType="INTEGER" property="doctorid" />
+    <result column="CreationTime" jdbcType="TIMESTAMP" property="creationtime" />
+    <result column="PrescriptioType" jdbcType="VARCHAR" property="prescriptiotype" />
+    <result column="PayNumber" jdbcType="INTEGER" property="paynumber" />
+    <result column="DrugsUsage" jdbcType="VARCHAR" property="drugsusage" />
+    <result column="Therapy" jdbcType="VARCHAR" property="therapy" />
+    <result column="Detailed" jdbcType="VARCHAR" property="detailed" />
+    <result column="Advice" jdbcType="VARCHAR" property="advice" />
+    <result column="Scope" jdbcType="VARCHAR" property="scope" />
+    <result column="DelMark" jdbcType="INTEGER" property="delmark" />
+  </resultMap>
+  <insert id="insert" parameterType="com.localhost.model.pojo.herbaltemplate">
+    insert into herbaltemplate (ID, Name, DoctorID, 
+      CreationTime, PrescriptioType, PayNumber, 
+      DrugsUsage, Therapy, Detailed, 
+      Advice, Scope, DelMark
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{doctorid,jdbcType=INTEGER}, 
+      #{creationtime,jdbcType=TIMESTAMP}, #{prescriptiotype,jdbcType=VARCHAR}, #{paynumber,jdbcType=INTEGER}, 
+      #{drugsusage,jdbcType=VARCHAR}, #{therapy,jdbcType=VARCHAR}, #{detailed,jdbcType=VARCHAR}, 
+      #{advice,jdbcType=VARCHAR}, #{scope,jdbcType=VARCHAR}, #{delmark,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.localhost.model.pojo.herbaltemplate">
+    insert into herbaltemplate
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="doctorid != null">
+        DoctorID,
+      </if>
+      <if test="creationtime != null">
+        CreationTime,
+      </if>
+      <if test="prescriptiotype != null">
+        PrescriptioType,
+      </if>
+      <if test="paynumber != null">
+        PayNumber,
+      </if>
+      <if test="drugsusage != null">
+        DrugsUsage,
+      </if>
+      <if test="therapy != null">
+        Therapy,
+      </if>
+      <if test="detailed != null">
+        Detailed,
+      </if>
+      <if test="advice != null">
+        Advice,
+      </if>
+      <if test="scope != null">
+        Scope,
+      </if>
+      <if test="delmark != null">
+        DelMark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorid != null">
+        #{doctorid,jdbcType=INTEGER},
+      </if>
+      <if test="creationtime != null">
+        #{creationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="prescriptiotype != null">
+        #{prescriptiotype,jdbcType=VARCHAR},
+      </if>
+      <if test="paynumber != null">
+        #{paynumber,jdbcType=INTEGER},
+      </if>
+      <if test="drugsusage != null">
+        #{drugsusage,jdbcType=VARCHAR},
+      </if>
+      <if test="therapy != null">
+        #{therapy,jdbcType=VARCHAR},
+      </if>
+      <if test="detailed != null">
+        #{detailed,jdbcType=VARCHAR},
+      </if>
+      <if test="advice != null">
+        #{advice,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null">
+        #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="delmark != null">
+        #{delmark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

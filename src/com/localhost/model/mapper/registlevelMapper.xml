@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.localhost.model.mapper.registlevelMapper">
+  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.registlevel">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="RegistCode" jdbcType="VARCHAR" property="registcode" />
+    <result column="RegistName" jdbcType="VARCHAR" property="registname" />
+    <result column="SequenceNo" jdbcType="INTEGER" property="sequenceno" />
+    <result column="RegistFee" jdbcType="DECIMAL" property="registfee" />
+    <result column="RegistQuota" jdbcType="INTEGER" property="registquota" />
+    <result column="DelMark" jdbcType="INTEGER" property="delmark" />
+  </resultMap>
+  <insert id="insert" parameterType="com.localhost.model.pojo.registlevel">
+    insert into registlevel (ID, RegistCode, RegistName, 
+      SequenceNo, RegistFee, RegistQuota, 
+      DelMark)
+    values (#{id,jdbcType=INTEGER}, #{registcode,jdbcType=VARCHAR}, #{registname,jdbcType=VARCHAR}, 
+      #{sequenceno,jdbcType=INTEGER}, #{registfee,jdbcType=DECIMAL}, #{registquota,jdbcType=INTEGER}, 
+      #{delmark,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.localhost.model.pojo.registlevel">
+    insert into registlevel
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="registcode != null">
+        RegistCode,
+      </if>
+      <if test="registname != null">
+        RegistName,
+      </if>
+      <if test="sequenceno != null">
+        SequenceNo,
+      </if>
+      <if test="registfee != null">
+        RegistFee,
+      </if>
+      <if test="registquota != null">
+        RegistQuota,
+      </if>
+      <if test="delmark != null">
+        DelMark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="registcode != null">
+        #{registcode,jdbcType=VARCHAR},
+      </if>
+      <if test="registname != null">
+        #{registname,jdbcType=VARCHAR},
+      </if>
+      <if test="sequenceno != null">
+        #{sequenceno,jdbcType=INTEGER},
+      </if>
+      <if test="registfee != null">
+        #{registfee,jdbcType=DECIMAL},
+      </if>
+      <if test="registquota != null">
+        #{registquota,jdbcType=INTEGER},
+      </if>
+      <if test="delmark != null">
+        #{delmark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
