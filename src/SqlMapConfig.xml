@@ -6,6 +6,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 	<typeAliases>
 	<!--mybatis的配置映射文件包  -->
-		<package name="com.localhost.model.pojo"/>
+		<package name="com.localhost.model.po"/>
 	</typeAliases>
 </configuration>

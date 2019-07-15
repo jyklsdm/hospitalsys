@@ -1,6 +1,6 @@
 package com.localhost.model.mapper;
 
-import com.localhost.model.pojo.registwork;
+import com.localhost.model.po.registwork;
 
 public interface registworkMapper {
     int insert(registwork record);

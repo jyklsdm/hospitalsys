@@ -1,6 +1,6 @@
 package com.localhost.model.mapper;
 
-import com.localhost.model.pojo.drugstemplate;
+import com.localhost.model.po.drugstemplate;
 
 public interface drugstemplateMapper {
     int insert(drugstemplate record);
