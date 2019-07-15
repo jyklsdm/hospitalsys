@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.localhost.model.mapper.expenseclassMapper">
-  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.expenseclass">
+  <resultMap id="BaseResultMap" type="com.localhost.model.po.expenseclass">
     <result column="ID" jdbcType="INTEGER" property="id" />
     <result column="ExpCode" jdbcType="VARCHAR" property="expcode" />
     <result column="ExpName" jdbcType="VARCHAR" property="expname" />
     <result column="DelMark" jdbcType="INTEGER" property="delmark" />
   </resultMap>
-  <insert id="insert" parameterType="com.localhost.model.pojo.expenseclass">
+  <insert id="insert" parameterType="com.localhost.model.po.expenseclass">
     insert into expenseclass (ID, ExpCode, ExpName, 
       DelMark)
     values (#{id,jdbcType=INTEGER}, #{expcode,jdbcType=VARCHAR}, #{expname,jdbcType=VARCHAR}, 
       #{delmark,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.localhost.model.pojo.expenseclass">
+  <insert id="insertSelective" parameterType="com.localhost.model.po.expenseclass">
     insert into expenseclass
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.localhost.model.mapper.registerMapper">
-  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.register">
+  <resultMap id="BaseResultMap" type="com.localhost.model.po.register">
     <result column="ID" jdbcType="INTEGER" property="id" />
     <result column="CaseNumber" jdbcType="VARCHAR" property="casenumber" />
     <result column="RealName" jdbcType="VARCHAR" property="realname" />
@@ -22,7 +22,7 @@
     <result column="RegisterID" jdbcType="INTEGER" property="registerid" />
     <result column="VisitState" jdbcType="INTEGER" property="visitstate" />
   </resultMap>
-  <insert id="insert" parameterType="com.localhost.model.pojo.register">
+  <insert id="insert" parameterType="com.localhost.model.po.register">
     insert into register (ID, CaseNumber, RealName, 
       Gender, IDnumber, BirthDate, 
       Age, AgeType, HomeAddress, 
@@ -38,7 +38,7 @@
       #{isbook,jdbcType=CHAR}, #{registtime,jdbcType=TIMESTAMP}, #{registerid,jdbcType=INTEGER}, 
       #{visitstate,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.localhost.model.pojo.register">
+  <insert id="insertSelective" parameterType="com.localhost.model.po.register">
     insert into register
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

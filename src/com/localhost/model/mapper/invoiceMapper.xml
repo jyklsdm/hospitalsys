@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.localhost.model.mapper.invoiceMapper">
-  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.invoice">
+  <resultMap id="BaseResultMap" type="com.localhost.model.po.invoice">
     <result column="ID" jdbcType="INTEGER" property="id" />
     <result column="InvoiceNum" jdbcType="VARCHAR" property="invoicenum" />
     <result column="Money" jdbcType="DECIMAL" property="money" />
@@ -13,7 +13,7 @@
     <result column="Back" jdbcType="VARCHAR" property="back" />
     <result column="DailyState" jdbcType="INTEGER" property="dailystate" />
   </resultMap>
-  <insert id="insert" parameterType="com.localhost.model.pojo.invoice">
+  <insert id="insert" parameterType="com.localhost.model.po.invoice">
     insert into invoice (ID, InvoiceNum, Money, 
       State, CreationTime, UserID, 
       RegistID, FeeType, Back, 
@@ -23,7 +23,7 @@
       #{registid,jdbcType=INTEGER}, #{feetype,jdbcType=INTEGER}, #{back,jdbcType=VARCHAR}, 
       #{dailystate,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.localhost.model.pojo.invoice">
+  <insert id="insertSelective" parameterType="com.localhost.model.po.invoice">
     insert into invoice
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
