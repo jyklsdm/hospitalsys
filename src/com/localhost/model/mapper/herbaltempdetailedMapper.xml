@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.localhost.model.mapper.herbaltempdetailedMapper">
-  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.herbaltempdetailed">
+  <resultMap id="BaseResultMap" type="com.localhost.model.po.herbaltempdetailed">
     <result column="ID" jdbcType="INTEGER" property="id" />
     <result column="HerbalTempID" jdbcType="INTEGER" property="herbaltempid" />
     <result column="HerbalID" jdbcType="INTEGER" property="herbalid" />
@@ -9,7 +9,7 @@
     <result column="Unit" jdbcType="VARCHAR" property="unit" />
     <result column="Footnote" jdbcType="VARCHAR" property="footnote" />
   </resultMap>
-  <insert id="insert" parameterType="com.localhost.model.pojo.herbaltempdetailed">
+  <insert id="insert" parameterType="com.localhost.model.po.herbaltempdetailed">
     insert into herbaltempdetailed (ID, HerbalTempID, HerbalID, 
       Dosage, Unit, Footnote
       )
@@ -17,7 +17,7 @@
       #{dosage,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{footnote,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.localhost.model.pojo.herbaltempdetailed">
+  <insert id="insertSelective" parameterType="com.localhost.model.po.herbaltempdetailed">
     insert into herbaltempdetailed
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

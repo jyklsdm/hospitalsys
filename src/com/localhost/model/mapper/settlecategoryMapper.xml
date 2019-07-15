@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.localhost.model.mapper.settlecategoryMapper">
-  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.settlecategory">
+  <resultMap id="BaseResultMap" type="com.localhost.model.po.settlecategory">
     <result column="ID" jdbcType="INTEGER" property="id" />
     <result column="SettleCode" jdbcType="VARCHAR" property="settlecode" />
     <result column="SettleName" jdbcType="VARCHAR" property="settlename" />
     <result column="SequenceNo" jdbcType="INTEGER" property="sequenceno" />
     <result column="DelMark" jdbcType="INTEGER" property="delmark" />
   </resultMap>
-  <insert id="insert" parameterType="com.localhost.model.pojo.settlecategory">
+  <insert id="insert" parameterType="com.localhost.model.po.settlecategory">
     insert into settlecategory (ID, SettleCode, SettleName, 
       SequenceNo, DelMark)
     values (#{id,jdbcType=INTEGER}, #{settlecode,jdbcType=VARCHAR}, #{settlename,jdbcType=VARCHAR}, 
       #{sequenceno,jdbcType=INTEGER}, #{delmark,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.localhost.model.pojo.settlecategory">
+  <insert id="insertSelective" parameterType="com.localhost.model.po.settlecategory">
     insert into settlecategory
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
