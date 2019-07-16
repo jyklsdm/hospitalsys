@@ -1,6 +1,6 @@
 package com.localhost.model.mapper;
 
-import com.localhost.model.pojo.user;
+import com.localhost.model.po.user;
 
 public interface userMapper {
     int insert(user record);

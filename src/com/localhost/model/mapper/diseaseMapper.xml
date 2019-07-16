@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.localhost.model.mapper.diseaseMapper">
-  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.disease">
+  <resultMap id="BaseResultMap" type="com.localhost.model.po.disease">
     <result column="ID" jdbcType="INTEGER" property="id" />
     <result column="DiseaseCode" jdbcType="VARCHAR" property="diseasecode" />
     <result column="DiseaseName" jdbcType="VARCHAR" property="diseasename" />
@@ -9,7 +9,7 @@
     <result column="DiseCategoryID" jdbcType="INTEGER" property="disecategoryid" />
     <result column="DelMark" jdbcType="INTEGER" property="delmark" />
   </resultMap>
-  <insert id="insert" parameterType="com.localhost.model.pojo.disease">
+  <insert id="insert" parameterType="com.localhost.model.po.disease">
     insert into disease (ID, DiseaseCode, DiseaseName, 
       DiseaseICD, DiseCategoryID, DelMark
       )
@@ -17,7 +17,7 @@
       #{diseaseicd,jdbcType=VARCHAR}, #{disecategoryid,jdbcType=INTEGER}, #{delmark,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.localhost.model.pojo.disease">
+  <insert id="insertSelective" parameterType="com.localhost.model.po.disease">
     insert into disease
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

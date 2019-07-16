@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.localhost.model.mapper.herbaltemplateMapper">
-  <resultMap id="BaseResultMap" type="com.localhost.model.pojo.herbaltemplate">
+  <resultMap id="BaseResultMap" type="com.localhost.model.po.herbaltemplate">
     <result column="ID" jdbcType="INTEGER" property="id" />
     <result column="Name" jdbcType="VARCHAR" property="name" />
     <result column="DoctorID" jdbcType="INTEGER" property="doctorid" />
@@ -15,7 +15,7 @@
     <result column="Scope" jdbcType="VARCHAR" property="scope" />
     <result column="DelMark" jdbcType="INTEGER" property="delmark" />
   </resultMap>
-  <insert id="insert" parameterType="com.localhost.model.pojo.herbaltemplate">
+  <insert id="insert" parameterType="com.localhost.model.po.herbaltemplate">
     insert into herbaltemplate (ID, Name, DoctorID, 
       CreationTime, PrescriptioType, PayNumber, 
       DrugsUsage, Therapy, Detailed, 
@@ -27,7 +27,7 @@
       #{advice,jdbcType=VARCHAR}, #{scope,jdbcType=VARCHAR}, #{delmark,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.localhost.model.pojo.herbaltemplate">
+  <insert id="insertSelective" parameterType="com.localhost.model.po.herbaltemplate">
     insert into herbaltemplate
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
