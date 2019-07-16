@@ -37,7 +37,7 @@
 	
 	<!-- 配置mapper -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.neuedu.model.mapper"></property>
+		<property name="basePackage" value="com.localhost.model.mapper"></property>
 		<property name="sqlSessionFactoryBeanName" value="sessionFactory"></property>
 	</bean>
 	
