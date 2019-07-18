@@ -6,4 +6,6 @@ public interface userMapper {
     int insert(user record);
 
 	int insertSelective(user record);
+	
+	public user getUser(String username);
 }
