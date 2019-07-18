@@ -15,12 +15,12 @@ public class LoginServiceImpl implements LoginService{
 	@Override
 	public int getJudgmentResult(String username, String password) {
 		if (loginService.getUser(username) == null) {
-			return 0;
+			return -1;
 		}
 		userState = loginService.getUser(username);
 		if (userState.getPassword().equals(password)) {
-			return 1;
+			return userState.getUsetype();
 		}
-		return 0;
+		return -1;
 	}
 }

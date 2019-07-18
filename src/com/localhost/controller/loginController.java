@@ -2,6 +2,7 @@ package com.localhost.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,9 @@ public class loginController {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		Integer result = new Integer(loginService.getJudgmentResult(username, password));
+		HttpSession session = request.getSession();
+		session.setAttribute("authorityLevel", result);
+		session.setMaxInactiveInterval(60 * 60 * 24 * 7);
 		return result;
 	}
 }
