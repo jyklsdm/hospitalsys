@@ -1,5 +1,13 @@
 $(function(){
 	var errorNumber = 0;
+	
+	if ($.cookie('username')) {
+		$("#user_name").val($.cookie('username'));
+	}
+	if ($.cookie('password')) {
+		$("#password").val($.cookie('password'));
+	}
+	
 	$("#btlogin").click(function(){
 			var username = $("#user_name").val();
 			var password = $("#password").val();
@@ -9,7 +17,7 @@ $(function(){
 					$("#errorMessages").html("登录出错！已重置！请重新登录！");
 					errorNumber = 0;
 					if ($.cookie('errorState') != null) {
-						$.cookie('errorState',null);
+						$.cookie('errorState',null,{expires : -1});
 					}
 					return;
 				}
@@ -49,6 +57,17 @@ $(function(){
 				},
 				success:function(data){
 					if (data != -1) {
+						if ($("#rememberPassword").is(':checked')) {
+							$.cookie('username', username, {expires:2});
+							$.cookie('password', password, {expires:2});
+						} else {
+							if ($.cookie('username')) {
+								$.cookie('username',null,{expires : -1});
+							}
+							if ($.cookie('password')) {
+								$.cookie('password',null,{expires : -1});
+							}
+						}
 						$(location).attr('href', 'index.html');	
 					}
 					errorNumber = errorNumber + 1;
