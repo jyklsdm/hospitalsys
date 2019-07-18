@@ -13,6 +13,13 @@
     <result column="RegistLeID" jdbcType="INTEGER" property="registleid" />
     <result column="DelMark" jdbcType="INTEGER" property="delmark" />
   </resultMap>
+  
+  <select id="getUser" parameterType="string" resultMap="BaseResultMap">
+  	select *
+  	from user
+  	where UserName = '${value}'
+  </select>
+  
   <insert id="insert" parameterType="com.localhost.model.po.user">
     insert into user (ID, UserName, Password, 
       RealName, UseType, DocTitleID, 
