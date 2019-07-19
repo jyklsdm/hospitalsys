@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.localhost.model.mapper.userMapper">
+  <resultMap id="BaseResultMap" type="com.localhost.model.po.user">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="UserName" jdbcType="VARCHAR" property="username" />
+    <result column="Password" jdbcType="VARCHAR" property="password" />
+    <result column="RealName" jdbcType="VARCHAR" property="realname" />
+    <result column="UseType" jdbcType="INTEGER" property="usetype" />
+    <result column="DocTitleID" jdbcType="INTEGER" property="doctitleid" />
+    <result column="IsScheduling" jdbcType="CHAR" property="isscheduling" />
+    <result column="DeptID" jdbcType="INTEGER" property="deptid" />
+    <result column="RegistLeID" jdbcType="INTEGER" property="registleid" />
+    <result column="DelMark" jdbcType="INTEGER" property="delmark" />
+  </resultMap>
+  
+  <select id="getUser" parameterType="string" resultMap="BaseResultMap">
+  	select *
+  	from user
+  	where UserName = '${value}'
+  </select>
+  
+  <insert id="insert" parameterType="com.localhost.model.po.user">
+    insert into user (ID, UserName, Password, 
+      RealName, UseType, DocTitleID, 
+      IsScheduling, DeptID, RegistLeID, 
+      DelMark)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{realname,jdbcType=VARCHAR}, #{usetype,jdbcType=INTEGER}, #{doctitleid,jdbcType=INTEGER}, 
+      #{isscheduling,jdbcType=CHAR}, #{deptid,jdbcType=INTEGER}, #{registleid,jdbcType=INTEGER}, 
+      #{delmark,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.localhost.model.po.user">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="username != null">
+        UserName,
+      </if>
+      <if test="password != null">
+        Password,
+      </if>
+      <if test="realname != null">
+        RealName,
+      </if>
+      <if test="usetype != null">
+        UseType,
+      </if>
+      <if test="doctitleid != null">
+        DocTitleID,
+      </if>
+      <if test="isscheduling != null">
+        IsScheduling,
+      </if>
+      <if test="deptid != null">
+        DeptID,
+      </if>
+      <if test="registleid != null">
+        RegistLeID,
+      </if>
+      <if test="delmark != null">
+        DelMark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null">
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="usetype != null">
+        #{usetype,jdbcType=INTEGER},
+      </if>
+      <if test="doctitleid != null">
+        #{doctitleid,jdbcType=INTEGER},
+      </if>
+      <if test="isscheduling != null">
+        #{isscheduling,jdbcType=CHAR},
+      </if>
+      <if test="deptid != null">
+        #{deptid,jdbcType=INTEGER},
+      </if>
+      <if test="registleid != null">
+        #{registleid,jdbcType=INTEGER},
+      </if>
+      <if test="delmark != null">
+        #{delmark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

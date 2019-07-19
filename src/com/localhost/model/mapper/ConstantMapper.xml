@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.localhost.model.mapper.ConstantMapper">
+  <resultMap id="BaseResultMap" type="com.localhost.model.po.Constant">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ConstantTypeID" jdbcType="INTEGER" property="constanttypeid" />
+    <result column="ConstantCode" jdbcType="VARCHAR" property="constantcode" />
+    <result column="ConstantName" jdbcType="VARCHAR" property="constantname" />
+    <result column="DelMark" jdbcType="INTEGER" property="delmark" />
+    <result column="ConstantTypeCode" jdbcType="VARCHAR" property="constantTypeCode"/>
+    <result column="ConstantTypeName" jdbcType="VARCHAR" property="constantTypeName"/>
+  </resultMap>
+  <select id="getConstantData" resultMap="BaseResultMap">
+  	SELECT
+		te.*,ty.ConstantTypeCode,ty.ConstantTypeName
+	FROM
+		constantitem te,
+		constanttype ty
+	WHERE
+		te.ConstantTypeID = ty.ID
+  </select>
+</mapper>

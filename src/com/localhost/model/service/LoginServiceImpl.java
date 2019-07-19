@@ -1,0 +1,25 @@
+package com.localhost.model.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.localhost.model.mapper.userMapper;
+import com.localhost.model.po.user;
+
+public class LoginServiceImpl implements LoginService{
+
+	private user userState;
+	@Autowired
+	private userMapper loginService;
+	
+	@Override
+	public Integer getJudgmentResult(String username, String password) {
+		if (loginService.getUser(username) == null) {
+			return Integer.valueOf(-1);
+		}
+		userState = loginService.getUser(username);
+		if (userState.getPassword().equals(password)) {
+			return userState.getUsetype();
+		}
+		return Integer.valueOf(-1);
+	}
+}

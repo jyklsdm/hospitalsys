@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.localhost.model.mapper.schedulingMapper">
+  <resultMap id="BaseResultMap" type="com.localhost.model.po.scheduling">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="SchedDate" jdbcType="DATE" property="scheddate" />
+    <result column="DeptID" jdbcType="INTEGER" property="deptid" />
+    <result column="UserID" jdbcType="INTEGER" property="userid" />
+    <result column="Noon" jdbcType="CHAR" property="noon" />
+    <result column="RuleID" jdbcType="INTEGER" property="ruleid" />
+    <result column="DelMark" jdbcType="INTEGER" property="delmark" />
+  </resultMap>
+  <insert id="insert" parameterType="com.localhost.model.po.scheduling">
+    insert into scheduling (ID, SchedDate, DeptID, 
+      UserID, Noon, RuleID, 
+      DelMark)
+    values (#{id,jdbcType=INTEGER}, #{scheddate,jdbcType=DATE}, #{deptid,jdbcType=INTEGER}, 
+      #{userid,jdbcType=INTEGER}, #{noon,jdbcType=CHAR}, #{ruleid,jdbcType=INTEGER}, 
+      #{delmark,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.localhost.model.po.scheduling">
+    insert into scheduling
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="scheddate != null">
+        SchedDate,
+      </if>
+      <if test="deptid != null">
+        DeptID,
+      </if>
+      <if test="userid != null">
+        UserID,
+      </if>
+      <if test="noon != null">
+        Noon,
+      </if>
+      <if test="ruleid != null">
+        RuleID,
+      </if>
+      <if test="delmark != null">
+        DelMark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="scheddate != null">
+        #{scheddate,jdbcType=DATE},
+      </if>
+      <if test="deptid != null">
+        #{deptid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="noon != null">
+        #{noon,jdbcType=CHAR},
+      </if>
+      <if test="ruleid != null">
+        #{ruleid,jdbcType=INTEGER},
+      </if>
+      <if test="delmark != null">
+        #{delmark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.localhost.model.mapper.checkapplyMapper">
+  <resultMap id="BaseResultMap" type="com.localhost.model.po.checkapply">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="MedicalID" jdbcType="INTEGER" property="medicalid" />
+    <result column="RegistID" jdbcType="INTEGER" property="registid" />
+    <result column="ItemID" jdbcType="INTEGER" property="itemid" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Objective" jdbcType="VARCHAR" property="objective" />
+    <result column="Position" jdbcType="VARCHAR" property="position" />
+    <result column="IsUrgent" jdbcType="INTEGER" property="isurgent" />
+    <result column="Num" jdbcType="INTEGER" property="num" />
+    <result column="CreationTime" jdbcType="TIMESTAMP" property="creationtime" />
+    <result column="DoctorID" jdbcType="INTEGER" property="doctorid" />
+    <result column="CheckOperID" jdbcType="INTEGER" property="checkoperid" />
+    <result column="ResultOperID" jdbcType="INTEGER" property="resultoperid" />
+    <result column="CheckTime" jdbcType="TIMESTAMP" property="checktime" />
+    <result column="Result" jdbcType="VARCHAR" property="result" />
+    <result column="ResultTime" jdbcType="TIMESTAMP" property="resulttime" />
+    <result column="State" jdbcType="INTEGER" property="state" />
+    <result column="RecordType" jdbcType="INTEGER" property="recordtype" />
+  </resultMap>
+  <insert id="insert" parameterType="com.localhost.model.po.checkapply">
+    insert into checkapply (ID, MedicalID, RegistID, 
+      ItemID, Name, Objective, 
+      Position, IsUrgent, Num, 
+      CreationTime, DoctorID, CheckOperID, 
+      ResultOperID, CheckTime, Result, 
+      ResultTime, State, RecordType
+      )
+    values (#{id,jdbcType=INTEGER}, #{medicalid,jdbcType=INTEGER}, #{registid,jdbcType=INTEGER}, 
+      #{itemid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{objective,jdbcType=VARCHAR}, 
+      #{position,jdbcType=VARCHAR}, #{isurgent,jdbcType=INTEGER}, #{num,jdbcType=INTEGER}, 
+      #{creationtime,jdbcType=TIMESTAMP}, #{doctorid,jdbcType=INTEGER}, #{checkoperid,jdbcType=INTEGER}, 
+      #{resultoperid,jdbcType=INTEGER}, #{checktime,jdbcType=TIMESTAMP}, #{result,jdbcType=VARCHAR}, 
+      #{resulttime,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}, #{recordtype,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.localhost.model.po.checkapply">
+    insert into checkapply
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="medicalid != null">
+        MedicalID,
+      </if>
+      <if test="registid != null">
+        RegistID,
+      </if>
+      <if test="itemid != null">
+        ItemID,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="objective != null">
+        Objective,
+      </if>
+      <if test="position != null">
+        Position,
+      </if>
+      <if test="isurgent != null">
+        IsUrgent,
+      </if>
+      <if test="num != null">
+        Num,
+      </if>
+      <if test="creationtime != null">
+        CreationTime,
+      </if>
+      <if test="doctorid != null">
+        DoctorID,
+      </if>
+      <if test="checkoperid != null">
+        CheckOperID,
+      </if>
+      <if test="resultoperid != null">
+        ResultOperID,
+      </if>
+      <if test="checktime != null">
+        CheckTime,
+      </if>
+      <if test="result != null">
+        Result,
+      </if>
+      <if test="resulttime != null">
+        ResultTime,
+      </if>
+      <if test="state != null">
+        State,
+      </if>
+      <if test="recordtype != null">
+        RecordType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="medicalid != null">
+        #{medicalid,jdbcType=INTEGER},
+      </if>
+      <if test="registid != null">
+        #{registid,jdbcType=INTEGER},
+      </if>
+      <if test="itemid != null">
+        #{itemid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="objective != null">
+        #{objective,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="isurgent != null">
+        #{isurgent,jdbcType=INTEGER},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="creationtime != null">
+        #{creationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="doctorid != null">
+        #{doctorid,jdbcType=INTEGER},
+      </if>
+      <if test="checkoperid != null">
+        #{checkoperid,jdbcType=INTEGER},
+      </if>
+      <if test="resultoperid != null">
+        #{resultoperid,jdbcType=INTEGER},
+      </if>
+      <if test="checktime != null">
+        #{checktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="result != null">
+        #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="resulttime != null">
+        #{resulttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="recordtype != null">
+        #{recordtype,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
