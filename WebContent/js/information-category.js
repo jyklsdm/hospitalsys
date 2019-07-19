@@ -6,7 +6,7 @@ $(function(){
 		async:false,
 		success:function(data) {
 			$("#datanumber").html(data.length);
-			for (var i = 0; i < data.length - 1; i++) {
+			for (var i = 0; i < data.length; i++) {
 				$("#sysData").append("<tr class=\"text-c\">" +
 						"<td><input type=\"checkbox\" value=\"\" name=\"\"></td>" +
 						"<td>" + data[i].id + "</td>" +
