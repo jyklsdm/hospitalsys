@@ -13,17 +13,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.localhost.model.service.LoginService;
 
 @Controller
+@RequestMapping("/user")
 public class loginController {
 
 	@Autowired
 	private LoginService loginService;
 
-	@RequestMapping(value = "/userLogin", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	@ResponseBody
 	public Integer login(HttpServletRequest request, HttpServletResponse response) {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		Integer result = new Integer(loginService.getJudgmentResult(username, password));
+		Integer result = loginService.getJudgmentResult(username, password);
 		HttpSession session = request.getSession();
 		session.setAttribute("authorityLevel", result);
 		session.setMaxInactiveInterval(60 * 60 * 24 * 7);

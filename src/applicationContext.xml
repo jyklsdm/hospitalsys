@@ -53,7 +53,7 @@
 			<tx:method name="update*" propagation="REQUIRED"/>
 			<tx:method name="delete*" propagation="REQUIRED"/>
 			<tx:method name="select*" propagation="REQUIRED"/>
-			<tx:method name="get*" propagation="REQUIRED"/>
+			<tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
 		</tx:attributes>
 	</tx:advice>
 	<!-- 设置切面 -->
