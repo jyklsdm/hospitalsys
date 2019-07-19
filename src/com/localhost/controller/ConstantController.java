@@ -10,14 +10,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.localhost.model.mapper.ConstantMapper;
 import com.localhost.model.po.Constant;
+import com.localhost.utils.Jurisdiction;
 
 @Controller
+@RequestMapping("/constant")
 public class ConstantController {
 	
 	@Autowired
 	private ConstantMapper constantMapper;
 	
-	@RequestMapping(value = "/constantgetdata", method = RequestMethod.GET)
+	@RequestMapping(value = "/getdata", method = RequestMethod.GET)
+	@Jurisdiction(jurisdiction = 1)
 	public @ResponseBody List<Constant> getConstantData() {
 		return constantMapper.getConstantData();
 	}

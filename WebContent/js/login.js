@@ -48,7 +48,7 @@ $(function(){
 			}
 			$.ajax({
 				type:"post",
-				url:"userLogin",
+				url:"user/login",
 				async:false,
 				datatype:"json",
 				data:{

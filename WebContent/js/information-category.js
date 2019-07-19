@@ -1,7 +1,7 @@
 $(function(){
 	$.ajax({
 		type:"get",
-		url:"constantgetdata",
+		url:"constant/getdata",
 		dataType:"json",
 		async:false,
 		success:function(data) {
