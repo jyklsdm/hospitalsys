@@ -25,9 +25,28 @@ public class loginController {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		Integer result = loginService.getJudgmentResult(username, password);
+		if (result.intValue() == -1) {
+			return result;
+		}
 		HttpSession session = request.getSession();
 		session.setAttribute("authorityLevel", result);
+		session.setAttribute("username", username);
 		session.setMaxInactiveInterval(60 * 60 * 24 * 7);
 		return result;
+	}
+	
+	@RequestMapping(value = "/showUsername", method = RequestMethod.POST)
+	public @ResponseBody String showUsername(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		String name = loginService.getName((String) session.getAttribute("username"));
+		return "{\"name\":\"" + name + "\"}";
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public void logout(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		session.removeAttribute("authorityLevel");
+		session.removeAttribute("username");
+		return;
 	}
 }

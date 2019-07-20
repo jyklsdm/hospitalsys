@@ -30,25 +30,31 @@
 <div class="page-container">
 	<div class="text-c"> 搜索方式	&nbsp;	
 		<span class="select-box inline">
-		<select name="" class="select">
+		<select id="selectID" name="" class="select">
 			<option value="0" >ConstantName</option>
 			<option value="1" >ConstantCode</option>
 			<option value="2" >ConstantTypeName</option>
 			<option value="3" >ConstantTypeCode</option>
 		</select>
 		</span>
-		<input type="text" name="" id="" placeholder=" 名称" style="width:250px" class="input-text">
-		<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+		<input type="text" name="" id="search" placeholder=" 名称" style="width:250px" class="input-text">
+		<button name=""  id="searchbutton" class="" type="button"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
 	</div>
+	<div id="tipsDiv"><span id="tips">&nbsp;</span></div>
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
 	<span class="l" id = "spanstype0">共有数据：<span id = "datanumber"> </span>条</span> 
-	<span class="r" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe600;</i>添加数据 <i class="Hui-iconfont">&#xe6e2;</i>删除数据</span>
+	<span class="r" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe600;</i>
+	<span id="addition">添加数据</span> <i class="Hui-iconfont">&#xe6e2;</i>
+	<span id="delete">删除数据</span><i class="Hui-iconfont">&#xe600;</i>
+	<span id="additionType">添加类别</span>
+	<i class="Hui-iconfont">&#xe6e2;</i>
+	<span id="deleteType">删除类别</span></span></span>
 	</div>
 	<div class="mt-20">
 		<table id="setdata" class="table table-border table-bordered table-bg table-hover table-sort table-responsive">
 			<thead>
 				<tr class="text-c">
-					<th width="15"><input type="checkbox" name="" value=""></th>
+					<th width="15"><input type="checkbox" name="" value="" id="selectAll"></th>
 					<th width="40">ID</th>
 					<th width="80">ConstantTypeID</th>
 					<th width="80">ConstantCode</th>
