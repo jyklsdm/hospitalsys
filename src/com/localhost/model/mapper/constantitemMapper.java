@@ -6,4 +6,6 @@ public interface constantitemMapper {
     int insert(constantitem record);
 
     int insertSelective(constantitem record);
+    
+    public int deleteData(Integer id);
 }

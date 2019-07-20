@@ -8,6 +8,13 @@
     <result column="ConstantName" jdbcType="VARCHAR" property="constantname" />
     <result column="DelMark" jdbcType="INTEGER" property="delmark" />
   </resultMap>
+  
+  <delete id="deleteData" parameterType="INTEGER">
+  		delete
+  		from constantitem
+  		where ID = #{ID}
+  </delete>
+  
   <insert id="insert" parameterType="com.localhost.model.po.constantitem">
     insert into constantitem (ID, ConstantTypeID, ConstantCode, 
       ConstantName, DelMark)

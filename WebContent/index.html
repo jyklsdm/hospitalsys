@@ -32,13 +32,12 @@
 			<span class="logo navbar-slogan f-l mr-10 hidden-xs">v1.0</span>
 		</div>
 		<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
-			<ul class="cl">
-			
-				<li>超级管理员</li>
+			<ul class="cl">	
+				<li >你好！</li>
 				<li class="dropDown dropDown_hover">
-					<a href="#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
+					<a href="#" class="dropDown_A"><span id="showUsrname">admin</span><i class="Hui-iconfont">&#xe6d5;</i></a>
 					<ul class="dropDown-menu menu radius box-shadow">						
-						<li><a href="#">退出</a></li>
+						<li><a id="logout">退出</a></li>
 					</ul>
 				</li>				
 			</ul>
@@ -160,11 +159,7 @@
 
 <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript" src="lib/jquery.contextmenu/jquery.contextmenu.r2.js"></script>
-<script type="text/javascript">
-$(function(){
-	
-});
-</script> 
+<script type="text/javascript" src="js/index.js"></script>
 
 </body>
 </html>

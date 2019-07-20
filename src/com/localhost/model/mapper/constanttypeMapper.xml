@@ -7,10 +7,19 @@
     <result column="ConstantTypeName" jdbcType="VARCHAR" property="constanttypename" />
     <result column="DelMark" jdbcType="INTEGER" property="delmark" />
   </resultMap>
-  <insert id="insert" parameterType="com.localhost.model.po.constanttype">
-    insert into constanttype (ID, ConstantTypeCode, ConstantTypeName, 
+  <select id="getData" resultMap="BaseResultMap">
+  	select *
+  	from constanttype
+  </select>
+  <delete id="deleteData" parameterType="String">
+  		delete
+  		from constanttype
+  		where ConstantTypeName = '${value}'
+  </delete>
+  <insert id="insert" parameterType="com.localhost.model.po.constanttype" keyProperty="ID" useGeneratedKeys="true">
+    insert into constanttype (ConstantTypeCode, ConstantTypeName, 
       DelMark)
-    values (#{id,jdbcType=INTEGER}, #{constanttypecode,jdbcType=VARCHAR}, #{constanttypename,jdbcType=VARCHAR}, 
+    values (#{constanttypecode,jdbcType=VARCHAR}, #{constanttypename,jdbcType=VARCHAR}, 
       #{delmark,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.localhost.model.po.constanttype">

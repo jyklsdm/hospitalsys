@@ -57,18 +57,16 @@ $(function(){
 				},
 				success:function(data){
 					if (data != -1) {
+						$.cookie('username', username, {expires:2,path:"/"});
 						if ($("#rememberPassword").is(':checked')) {
-							$.cookie('username', username, {expires:2});
 							$.cookie('password', password, {expires:2});
 						} else {
-							if ($.cookie('username')) {
-								$.cookie('username',null,{expires : -1});
-							}
 							if ($.cookie('password')) {
 								$.cookie('password',null,{expires : -1});
 							}
 						}
 						$(location).attr('href', 'index.html');	
+						return;
 					}
 					errorNumber = errorNumber + 1;
 					if (errorNumber >= 5) {
