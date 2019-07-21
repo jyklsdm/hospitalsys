@@ -173,13 +173,13 @@ $(function() {
 				$("#deleteType").attr({ disabled: "disabled" });
 			},
 			success:function(data) {
-				if (data.result == 1) {
+				if (data.result == "1") {
 					$("#tips").html("添加成功！");
 				} 
-				else if (data.result == 0) {
+				else if (data.result == "0") {
 					$("#tips").html("添加失败！类别名称重名！");
 				} 
-				else if (data.result == -1){
+				else if (data.result == "-1"){
 					$("#tips").html("添加失败！请类别编码重名！");
 				} else {
 					$("#tips").html("添加失败！请刷新重试！");
@@ -192,6 +192,45 @@ $(function() {
 				$("#deleteType").removeAttr("disabled");
 			}
 		})
+	});
+	
+	$("#addition").click(function() {
+		$("#popUp").css("display","block");
+		$("#cancel").click(function(){
+			$("#addTips").html("");
+			$("#popUp").css("display","none");
+		});
+		$("#submit").click(function(){
+			var constantName = $(".addConstantName").val();
+			var constantCode = $(".addConstantCode").val();
+			var constantTypeName = $(".addConstantTypeName").val();
+			$.ajax({
+				type:"post",
+				datatype:"json",
+				url:"constant/addConstant",
+				async:true,
+				data:{
+					constantName:addConstantName,
+					constantCode:constantCode,
+					constantTypeName,constantTypeName
+				},
+				beforeSend: function(){
+					$("#addTips").html("正在处理，请稍后...");
+				},
+				success:function(data) {
+					if(data.result == "1") {
+						$("#tips").html("添加成功！");
+						$("#popUp").css("display","none");
+					}
+					else if (data.result == "0") {
+						$("#addTips").html("类别名称不存在！！！");
+					}
+					else {
+						$("#addTips").html("添加失败！请重试！");
+					}
+				},
+			})
+		});
 	});
 	
 	function judgeNull(state) {

@@ -63,4 +63,5 @@
 	
 	<!-- 往spring容器中装配service的bean -->
 	<bean id="loginService" class="com.localhost.model.service.LoginServiceImpl"></bean>
+	<bean id="constantService" class="com.localhost.model.service.ConstantServiceImpl"></bean>
 </beans>

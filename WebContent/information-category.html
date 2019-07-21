@@ -26,7 +26,22 @@
 <title>常数类别管理</title>
 </head>
 <body>
+
+<div id="popUp">
+	<div class="popUpleft"></div>
+    <div class="popUpmiddle" id="popUpData">
+    	<br/><br/>
+		<p>名称：<input type="text" class="addConstantName"></p>
+		<p>编码：<input type="text" class="addConstantCode"></p>
+		<p>类别：<input type="text" class="addConstantTypeName"></p>
+		<p><input type="button" value="提交" id="submit">
+		<input type="button" value="取消" id="cancel"></p>
+	</div>
+    <div class="popUpright"></div>
+	</div>
+	<div id="noPopUp">
 <nav class="breadcrumb" ><i class="Hui-iconfont">&#xe67f;</i> <a href="javascript:location.replace(location.href);">首页 </a><span class="c-gray en">&gt;</span> 管理 <span class="c-gray en">&gt;</span> 列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+
 <div class="page-container">
 	<div class="text-c"> 搜索方式	&nbsp;	
 		<span class="select-box inline">
@@ -48,8 +63,9 @@
 	<span id="delete">删除数据</span><i class="Hui-iconfont">&#xe600;</i>
 	<span id="additionType">添加类别</span>
 	<i class="Hui-iconfont">&#xe6e2;</i>
-	<span id="deleteType">删除类别</span></span></span>
+	<span id="deleteType">删除类别</span></span>
 	</div>
+	
 	<div class="mt-20">
 		<table id="setdata" class="table table-border table-bordered table-bg table-hover table-sort table-responsive">
 			<thead>
@@ -76,7 +92,8 @@
 				<td class="titletype">常数类别名称</td></tr>
 			</tbody>
 		</table>
-	</div>
+	</div>			
+</div>
 </div>
 
 <!--_footer 作为公共模版分离出去-->

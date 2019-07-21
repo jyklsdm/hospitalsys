@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.localhost.model.mapper.ConstantMapper;
-import com.localhost.model.mapper.constantitemMapper;
-import com.localhost.model.mapper.constanttypeMapper;
 import com.localhost.model.po.Constant;
-import com.localhost.model.po.constanttype;
+import com.localhost.model.service.ConstantService;
 import com.localhost.utils.Jurisdiction;
 
 @Controller
@@ -22,9 +20,7 @@ public class ConstantController {
 	@Autowired
 	private ConstantMapper constantMapper;
 	@Autowired
-	private constantitemMapper constantItemMapper;
-	@Autowired
-	private constanttypeMapper constantTypeMapper;
+	private ConstantService constantService;
 
 	@RequestMapping(value = "/getdata", method = RequestMethod.GET)
 	@Jurisdiction(jurisdiction = 1)
@@ -71,15 +67,7 @@ public class ConstantController {
 	@Jurisdiction(jurisdiction = 1)
 	public @ResponseBody String delete(String[] selectData) {
 		String result = "true";
-		int deleteNumber = 0;
-		for (int i = 0; i < selectData.length; i++) {
-			if (constantItemMapper.deleteData(Integer.valueOf(selectData[i])) != 0) {
-				deleteNumber++;
-			}
-		}
-		if (deleteNumber == 0) {
-			result = "false";
-		}
+		result = constantService.delete(selectData);
 		return "{\"result\":" + result + "}";
 	}
 	
@@ -87,30 +75,23 @@ public class ConstantController {
 	@Jurisdiction(jurisdiction = 1)
 	public @ResponseBody String deleteType(String constantTypeName) {
 		String result = "true";
-		if (constantTypeMapper.deleteData(constantTypeName) == 0) {
-			result = "false";
-		}
+		result = constantService.deleteType(constantTypeName);
 		return "{\"result\":" + result + "}";
 	}
 	
 	@RequestMapping(value = "/additionType", method = RequestMethod.POST)
 	@Jurisdiction(jurisdiction = 1)
 	public @ResponseBody String additionType(String constantTypeName, String constantTypeCode) {
-		int result = 1;
-		List<constanttype> constantTypeData = constantTypeMapper.getData();
-		for (int i = 0; i < constantTypeData.size(); i++) {
-			if (constantTypeData.get(i).getConstanttypename().equals(constantTypeName)) {
-				return "{\"result\":" + 0 + "}";
-			}
-			if (constantTypeData.get(i).getConstanttypecode().equals(constantTypeCode)) {
-				return "{\"result\":" + (-1) + "}";
-			}
-		}
-		constanttype constantType = new constanttype();
-		constantType.setDelmark(new Integer(1));
-		constantType.setConstanttypename(constantTypeName);
-		constantType.setConstanttypecode(constantTypeCode);
-		constantTypeMapper.insert(constantType);
-		return "{\"result\":" + result + "}";
+		Integer result = 1;
+		result = constantService.additionType(constantTypeName, constantTypeCode);
+		return "{\"result\":" + result.toString() + "}";
+	}
+	
+	@RequestMapping(value = "/addConstant", method = RequestMethod.POST)
+	@Jurisdiction(jurisdiction = 1)
+	public @ResponseBody String addConstant(String constantName, String constantCode, String constantTypeName) {
+		Integer result = 1;
+		result = constantService.addConstant(constantName, constantCode, constantTypeName);
+		return "{\"result\":" + result.toString() + "}";
 	}
 }
