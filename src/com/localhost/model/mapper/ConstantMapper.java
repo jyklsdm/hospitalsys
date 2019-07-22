@@ -8,4 +8,5 @@ import com.localhost.model.po.Constant;
 public interface ConstantMapper {
 
 	public List<Constant> getConstantData();
+	
 }

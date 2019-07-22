@@ -10,63 +10,35 @@
 <script type="text/javascript" src="lib/html5shiv.js"></script>
 <script type="text/javascript" src="lib/respond.min.js"></script>
 <![endif]-->
-<link rel="stylesheet" type="text/css" href="css/information-category.css" />
 <link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
 <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
 <link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
 <link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
-
-
 <!--[if IE 6]>
 <script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
-
 <![endif]-->
-<title>常数类别管理</title>
+<title>列表</title>
 </head>
 <body>
-
-<div id="popUp">
-	<div class="popUpleft"></div>
-    <div class="popUpmiddle" id="popUpData">
-    	<br/><br/>
-		<p>名称：<input type="text" class="addConstantName"></p>
-		<p>编码：<input type="text" class="addConstantCode"></p>
-		<p>类别：<input type="text" class="addConstantTypeName"></p>
-		<p><input type="button" value="提交" id="submit">
-		<input type="button" value="取消" id="cancel"></p>
-		<span id="addTips"></span>
-	</div>
-    <div class="popUpright"></div>
-	</div>
-	<div id="noPopUp">
-<nav class="breadcrumb" ><i class="Hui-iconfont">&#xe67f;</i> <a href="javascript:location.replace(location.href);">首页 </a><span class="c-gray en">&gt;</span> 管理 <span class="c-gray en">&gt;</span> 列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理 <span class="c-gray en">&gt;</span> 列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-	<div class="text-c"> 搜索方式	&nbsp;	
-		<span class="select-box inline">
-		<select id="selectID" name="" class="select">
-			<option value="0" >ConstantName</option>
-			<option value="1" >ConstantCode</option>
-			<option value="2" >ConstantTypeName</option>
-			<option value="3" >ConstantTypeCode</option>
+	<div class="text-c">		
+	 <span class="select-box inline">
+		<select name="" class="select">
+			<option value="0">全部分类</option>
+			<option value="1">分类一</option>
+			<option value="2">分类二</option>
 		</select>
-		</span>
-		<input type="text" name="" id="search" placeholder=" 名称" style="width:250px" class="input-text">
-		<button name=""  id="searchbutton" class="" type="button"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+		</span> 日期范围：
+		<input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}' })" id="logmin" class="input-text Wdate" style="width:120px;">
+		-
+		<input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d' })" id="logmax" class="input-text Wdate" style="width:120px;">
+		<input type="text" name="" id="" placeholder=" 名称" style="width:250px" class="input-text">
+		<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
 	</div>
-	<div id="tipsDiv"><span id="tips">&nbsp;</span></div>
-	<div class="cl pd-5 bg-1 bk-gray mt-20">
-	<span class="l" id = "spanstype0">共有数据：<span id = "datanumber"> </span>条</span> 
-	<span class="r" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe600;</i>
-	<span id="addition">添加数据</span> <i class="Hui-iconfont">&#xe6e2;</i>
-	<span id="delete">删除数据</span><i class="Hui-iconfont">&#xe600;</i>
-	<span id="additionType">添加类别</span>
-	<i class="Hui-iconfont">&#xe6e2;</i>
-	<span id="deleteType">删除类别</span></span>
-	</div>
-	
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" data-title="添加数据" data-href="article-add.html" onclick="Hui_admin_tab(this)" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加数据</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
 	<div class="mt-20">
 		<table id="setdata" class="table table-border table-bordered table-bg table-hover table-sort table-responsive">
 			<thead>
@@ -93,10 +65,8 @@
 				<td class="titletype">常数类别名称</td></tr>
 			</tbody>
 		</table>
-	</div>			
+	</div>
 </div>
-</div>
-
 <!--_footer 作为公共模版分离出去-->
 <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
 <script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
@@ -107,6 +77,7 @@
 <script type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"></script> 
 <script type="text/javascript" src="lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
 <script type="text/javascript" src="lib/laypage/1.2/laypage.js"></script>
-<script type="text/javascript" src="js/information-category.js"></script> 
+<script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="js/doctor-medicalTechnology.js"></script>
 </body>
 </html>

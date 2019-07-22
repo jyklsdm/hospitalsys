@@ -16,10 +16,30 @@ public class LoginServiceImpl implements LoginService{
 		if (loginService.getUser(username) == null) {
 			return Integer.valueOf(-1);
 		}
+		//防止注入攻击
+		for (int i = 0; i < password.length(); i++) {
+			if (password.charAt(i) >= '0' && password.charAt(i) <= '9') {
+				continue;
+			}
+			if (password.charAt(i) >= 'a' && password.charAt(i) <= 'z') {
+				continue;
+			}
+			if (password.charAt(i) >= 'A' && password.charAt(i) <= 'Z') {
+				continue;
+			}
+			return Integer.valueOf(-1);
+		}
 		userState = loginService.getUser(username);
 		if (userState.getPassword().equals(password)) {
 			return userState.getUsetype();
 		}
 		return Integer.valueOf(-1);
 	}
+
+	@Override
+	public String getName(String username) {
+		userState = loginService.getUser(username);
+		return userState.getRealname();
+	}
+	
 }

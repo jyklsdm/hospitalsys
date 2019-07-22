@@ -4,3 +4,45 @@
 	font-weight:bold;
 	border-radius:10px;
 }
+
+#tipsDiv {
+	text-align: center;
+}
+
+#noPopUp {
+	position: absolute;
+	width:100%;
+}
+
+#popUp {
+	display:none;
+	position: relative;
+	float:left;
+	top:20px;
+	height:200px;
+	width:100%;
+	z-index:99;
+}
+
+#popUp div{
+	width:33%;
+	height:100%;
+	float:left;
+}
+.popUpleft{
+	background-color:#ffffff;
+	visibility:hidden;
+}
+.popUpmiddle{
+	background-color:#0080c0;
+	text-align: center;
+}
+.popUpright{
+	background-color:#ffffff;
+	visibility:hidden;
+}
+
+#submit,#cancel{
+	width:49%;
+	height:30px;
+}
