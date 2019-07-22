@@ -92,6 +92,6 @@ public class ConstantController {
 	public @ResponseBody String addConstant(String constantName, String constantCode, String constantTypeName) {
 		Integer result = 1;
 		result = constantService.addConstant(constantName, constantCode, constantTypeName);
-		return "{\"result\":" + result.toString() + "}";
+		return "{\"result\":" + result + "}";
 	}
 }

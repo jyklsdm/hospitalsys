@@ -1,0 +1,20 @@
+div.tabCon {
+	display:none;
+	height:100%;
+}
+
+#tabCon0 {
+	display:block;
+}
+
+button.diagnosisButton {
+	width:80px;
+	padding: 5px 20px 5px 0px;
+	border-style: outset;
+	border-width: 2px 5px 2px 5px;
+	text-align: center; 
+}
+
+div.centre {
+	text-align: center;
+}

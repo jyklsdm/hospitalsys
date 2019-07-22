@@ -221,15 +221,15 @@ $(function() {
 				$("#submit").attr({ disabled: "disabled" });
 			},
 			success:function(data) {
-				if(data.result == "1") {
+				if(data.result == 1) {
 					$("#tips").html("添加成功！");
 					$("#addTips").html("");
 					$("#popUp").css("display","none");
 				}
-				else if (data.result == "0") {
+				else if (data.result == 0) {
 					$("#addTips").html("类别名称不存在！！！");
 				}
-				else if (data.result == "-1") {
+				else if (data.result == -1) {
 					$("#addTips").html("添加失败！请重试！");
 				}
 				else {
