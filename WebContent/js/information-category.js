@@ -185,7 +185,7 @@ $(function() {
 					$("#tips").html("添加失败！请刷新重试！");
 				}		
 			},
-			error:function(data) {
+			error:function() {
 				$("#tips").html("连接出错！添加失败！请刷新重试！");
 			},
 			complete:function(XMLHttpRequest, textStatus) {
@@ -195,42 +195,59 @@ $(function() {
 	});
 	
 	$("#addition").click(function() {
-		$("#popUp").css("display","block");
-		$("#cancel").click(function(){
-			$("#addTips").html("");
-			$("#popUp").css("display","none");
-		});
-		$("#submit").click(function(){
-			var constantName = $(".addConstantName").val();
-			var constantCode = $(".addConstantCode").val();
-			var constantTypeName = $(".addConstantTypeName").val();
-			$.ajax({
-				type:"post",
-				datatype:"json",
-				url:"constant/addConstant",
-				async:true,
-				data:{
-					constantName:addConstantName,
-					constantCode:constantCode,
-					constantTypeName,constantTypeName
-				},
-				beforeSend: function(){
-					$("#addTips").html("正在处理，请稍后...");
-				},
-				success:function(data) {
-					if(data.result == "1") {
-						$("#tips").html("添加成功！");
-						$("#popUp").css("display","none");
-					}
-					else if (data.result == "0") {
-						$("#addTips").html("类别名称不存在！！！");
-					}
-					else {
-						$("#addTips").html("添加失败！请重试！");
-					}
-				},
-			})
-		});
+		$("#popUp").css("display","block");		
+	});
+	
+	$("#submit").click(function(){
+		var constantName = $(".addConstantName").val();
+		var constantCode = $(".addConstantCode").val();
+		var constantTypeName = $(".addConstantTypeName").val();
+		if (constantName == "" || constantCode == "" || constantTypeName == "" ) {
+			$("#addTips").html("输入为空！请输入！");
+			return;
+		}
+		$.ajax({
+			type:"post",
+			url:"constant/addConstant",
+			datatype:"json",
+			async:true,
+			data:{
+				constantName:constantName,
+				constantCode:constantCode,
+				constantTypeName:constantTypeName
+			},
+			beforeSend:function(){
+				$("#addTips").html("正在处理，请稍后...");
+				$("#submit").attr({ disabled: "disabled" });
+			},
+			success:function(data) {
+				if(data.result == "1") {
+					$("#tips").html("添加成功！");
+					$("#addTips").html("");
+					$("#popUp").css("display","none");
+				}
+				else if (data.result == "0") {
+					$("#addTips").html("类别名称不存在！！！");
+				}
+				else if (data.result == "-1") {
+					$("#addTips").html("添加失败！请重试！");
+				}
+				else {
+					$("#addTips").html("添加失败！请重试！");
+				}
+			},
+			complete:function(XMLHttpRequest, textStatus) {
+				$("#submit").removeAttr("disabled");
+			}
+		})
+	});
+	
+	$("#cancel").click(function(){
+		$("#addTips").html("");
+		$(".addConstantName").val("");
+		$(".addConstantCode").val("");
+		$(".addConstantTypeName").val("");
+		$("#popUp").css("display","none");
 	});
 	
 	function judgeNull(state) {
